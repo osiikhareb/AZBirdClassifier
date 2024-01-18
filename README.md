@@ -1,2 +1,2 @@
 # AZBirdClassifier
-Classification of avian species in Arizona
+Classification of avian species in Arizona (WIP)
