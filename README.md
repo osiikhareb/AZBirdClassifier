@@ -5,11 +5,17 @@ Classification of avian species in Arizona (WIP)
 ***All information below is subject to change but the structure remains the same
 
 Phase 1: Scrape
+
 Phase 2: Organize
+
 Phase 3: Model
+
 Phase 4: Train
+
 Phase 5: Deploy
+
 Phase 6: Prettify
+
 Phase 7: Expand
 
 
