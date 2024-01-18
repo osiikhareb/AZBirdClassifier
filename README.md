@@ -18,8 +18,7 @@ Phase 6: Prettify
 
 Phase 7: Expand
 
-
-
+#######################
 
 Phase 1: Scrape
 - Build labeled training data set
