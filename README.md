@@ -19,6 +19,8 @@ Phase 6: Prettify
 Phase 7: Expand
 
 
+
+
 Phase 1: Scrape
 - Build labeled training data set
 	- Use Selenium scraper to obtain images from eBird
