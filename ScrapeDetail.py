@@ -5,9 +5,10 @@ Created on Thu Dec 28 21:16:34 2023
 @author: Osi
 """
 
+import os
 import pandas as pd
 import numpy as np
-import os
+import itertools
 from timeit import default_timer as timer
 from selenium import webdriver
 from selenium.webdriver import ChromeOptions
@@ -26,32 +27,12 @@ All bots must avoid these directories: /linegraph /barchartData /*checklist
 
 
 # In the future use created Search function and import search terms from saved folder
-error_prone_search_terms = ['White-winged dove', 'Mourning dove']
 
-search_terms = [
-'Canada goose', 'Blue-winged teal', 'Cinnamon teal', 'Northern shoveler', 
-'Mallard', 'Northern cardinal', 'Pyrrhuloxia', 'Phainopepla', 'Cactus Wren', 
-'Rock Wren', 'House Wren', 'Bewicks Wren', 'Northern Mockingbird', 
-'Curve-billed thrasher', 'European starling', 'Black-tailed gnatcatcher', 'Verdin', 
-'Cassins Vireo', 'Bells Vireo', 'Ruby-crowned kinglet', 'Says Phoebe', 
-'Black Phoebe', 'Olive-sided flycatcher', 'Gray Flycatcher', 'Cassins kingbird', 
-'Western kingbird', 'Great tailed grackle', 'Gila woodpecker', 'Gilded flicker', 
-'Northern flicker', 'Eurasian collared-dove', 'Rock Pigeon', 'Greater roadrunner', 
-'Lesser nighthawk', 'Annas hummingbird', 'Black-chinned hummingbird', 'Costas hummingbird', 
-'Black-necked stilt', 'American avocet', 'Killdeer', 'Lesser yellowlegs', 
-'Neotropic Cormorant', 'American white pelican', 'Least bittern', 'Great blue heron', 
-'Great egret', 'Snowy egret', 'Cattle egret', 'Green heron', 'Black-crowned night-heron', 
-'Black vulture', 'Turkey vulture', 'Osprey', 'Northern harrier', 'Sharp-shinned hawk', 
-'Coopers hawk', 'Bald eagle', 'Swainsons hawk', 'Red-tailed hawk', 'Great horned owl', 
-'Western screech-owl', 'Burrowing owl', 'Peregrine falcon', 'American kestrel', 
-'Prairie falcon', 'Gambels quail', 'House Finch', 'House Sparrow', 'Black-Throated Sparrow', 
-'White-crowned Sparrow', 'Loggerhead Shrike', 'American Crow', 'Rosy-faced lovebird'
-]
 
 # Insert check if species_info_df exists in folder, then check if any search terms are in species_info_df
 
 
-def scrape_detail(search_terms):
+def scrape_detail(search_terms, error_prone_search_terms):
     start = timer()
     
     # Create empty list to store scraped details of each species
@@ -208,7 +189,7 @@ def scrape_detail(search_terms):
         #create species_info_df2 then append results to existing df
     #else do this:
     species_info_df = pd.DataFrame(species_info, columns=['query', 'speciesCode', 'comName', 'sciName', 'order', 'family', 'genus', 'species', 'description'])    
-    species_info_df.to_csv('A:/Documents/Python Scripts/BirdBot2.0/Scraper/_output/species_info.csv')
+    species_info_df.to_csv('A:/Documents/Python Scripts/BirdBot2.0/Scraper/files/species_info.csv')
 
     return
     
