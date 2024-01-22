@@ -5,6 +5,7 @@ Created on Sun Jan 21 21:54:49 2024
 @author: Osi
 """
 
+import os, shutil, pathlib
 import pandas as pd
 import numpy as np
 import tensorflow as tf
@@ -39,6 +40,8 @@ model.compile(loss="binary_crossentropy",
               metrics=["accuracy"])
 
 
+new_base_dir = pathlib.Path("A:\Documents\Python Scripts\BirdBot2.0\Preprocessing\_images")
+
 # Import training, validation, and test data
 train_dataset = image_dataset_from_directory(
     new_base_dir / "train",
@@ -57,7 +60,7 @@ test_dataset = image_dataset_from_directory(
 # Fit model to training data
 callbacks = [
     keras.callbacks.ModelCheckpoint(
-        filepath="convnet_from_scratch.keras",
+        filepath="A:\Documents\Python Scripts\BirdBot2.0\Test",
         save_best_only=True,
         monitor="val_loss")
 ]
@@ -86,6 +89,6 @@ plt.legend()
 plt.show()
 
 # Test model on test dataset
-test_model = keras.models.load_model("convnet_from_scratch.keras")
+test_model = keras.models.load_model("A:\Documents\Python Scripts\BirdBot2.0\Test")
 test_loss, test_acc = test_model.evaluate(test_dataset)
 print(f"Test accuracy: {test_acc:.3f}")
