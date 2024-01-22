@@ -1,9 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Thu Jan  4 19:07:07 2024
-
-@author: Osi
-"""
 
 """
 Preprocessing needs:
