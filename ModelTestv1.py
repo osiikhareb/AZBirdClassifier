@@ -1,10 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Sun Jan 21 21:54:49 2024
-
-@author: Osi
-"""
-
 import os, shutil, pathlib
 import pandas as pd
 import numpy as np
