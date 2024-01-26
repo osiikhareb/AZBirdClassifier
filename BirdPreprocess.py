@@ -9,20 +9,16 @@ Created on Thu Jan  4 19:07:07 2024
 Preprocessing needs:
 Read images to a new folder and label them
 Get all images to be the same size either by resizing downwards or zero padding
-create training/test datasets
 """
 
 import os
+import shutil
+import random
 import math
 import numpy as np
 import pandas as pd
 from PIL import Image
 import cv2 as cv
-import keras
-import tensorflow as tf
-from keras import layers
-from tensorflow import data as tf_data
-from tensorflow.keras import layers, models
 import matplotlib.pyplot as plt
 
 
@@ -111,6 +107,15 @@ for i in speciesCodelist:
     file_count = sum(len(files) for _, _, files in os.walk(folder)) + 1
     #file_count = sum(1 for _, _, files in os.walk(folder) for f in files) + 1
     
+    dest = f'A:/Documents/Python Scripts/BirdBot2.0/Preprocessing/_images/{i}'
+    dest_file_count = sum(len(files) for _, _, files in os.walk(dest))
+    
+    if dest_file_count == 0:
+        pass
+    
+    elif dest_file_count > 0:
+        continue
+    
     for j in range(1, file_count):
         try:
             
@@ -146,17 +151,8 @@ for i in speciesCodelist:
             img_new = add_margin(img, top, right, bottom, left, (128, 0, 64))
             img_new = img_new.convert('RGB')
             img_new.save(f'A:/Documents/Python Scripts/BirdBot2.0/Preprocessing/_images/{i}/{i}_{j}_pad.jpg', quality=100)
-            #img_new.show()
+            #img_new.show()            
+            
         except FileNotFoundError:  #if file not found go to next iteration
            continue
-            
-
-
-
-# Define train and test datasets
-(train_images, train_labels), (test_images, test_labels) = birddata.load_data()
-
-
-# Normalize pixel values to be between 0 and 1
-train_images, test_images = train_images / 255.0, test_images / 255.0
 
