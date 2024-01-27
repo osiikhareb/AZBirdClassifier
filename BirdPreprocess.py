@@ -1,15 +1,12 @@
 # -*- coding: utf-8 -*-
 """
-Created on Thu Jan  4 19:07:07 2024
+Preprocessing needs:
+Read images to a new folder and label them
+Standardize image size by zero padding to preserve differences in aspect ratios
 
 @author: Osi
 """
 
-"""
-Preprocessing needs:
-Read images to a new folder and label them
-Get all images to be the same size either by resizing downwards or zero padding
-"""
 
 import os
 import shutil
