@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-Created on Fri Dec 29 16:53:33 2023
+Using the generated species code list produced from ScrapeDetail, 
+loop through the list to scrape images from Macaulay library sorted by highest quality images.
+Scraper currently set to scrape ~330 images (+/- 30) depending on species page
 
 @author: Osi
 """
