@@ -1,6 +1,12 @@
 # -*- coding: utf-8 -*-
 """
-Created on Thu Dec 28 21:16:34 2023
+Scrape species details from species page
+Details include:
+    speciesCode - used for identification and image search
+    comName - Common name for specified bird
+    sciName - Scientific Name i.e. Genus Species
+    Taxonomic info - Order, Family, Genus, Species (for further classification e.g. OO hierarchies, inheritance etc.)
+    Description - Species description for informational purposes as well as GAN text-to-image synthesis
 
 @author: Osi
 """
