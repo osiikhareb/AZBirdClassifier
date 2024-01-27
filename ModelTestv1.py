@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sun Jan 21 21:54:49 2024
-
+Code for preliminary model fit test on image data
+This is used to guide selected model choice
 @author: Osi
 """
 
