@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-Created on Wed Jan 24 21:59:47 2024
+Move preprocessed images to Train, Validation, and Test folders
+Images shuffled randomly and moved rather than copied to avoid 
+both biased datasets and copying an image more than once.
 
 @author: Osi
 """
