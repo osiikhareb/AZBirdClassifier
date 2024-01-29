@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-Code for preliminary model fit test on image data
-This is used to guide selected model choice
+Created on Sun Jan 21 21:54:49 2024
+
 @author: Osi
 """
 
@@ -14,6 +14,16 @@ from tensorflow import data as tf_data
 from tensorflow.keras import layers, models
 from tensorflow.keras.utils import image_dataset_from_directory
 import matplotlib.pyplot as plt
+#from google.colab import drive
+#drive.mount('/content/drive', force_remount=True)
+
+sess = tf.compat.v1.Session()
+print("Num GPUs Available: ", len(tf.config.list_physical_devices('GPU')))
+
+device_name = tf.test.gpu_device_name()
+if device_name != '/device:GPU:0':
+  raise SystemError('GPU device not found')
+print('Found GPU at: {}'.format(device_name))
 
 
 
@@ -45,6 +55,7 @@ model.compile(loss="binary_crossentropy",
 
 
 new_base_dir = pathlib.Path("A:\Documents\Python Scripts\BirdBot2.0\Training\_images")
+#new_base_dir = pathlib.Path('/content/drive/My Drive/_images')
 
 # Import training, validation, and test data
 train_dataset = image_dataset_from_directory(
@@ -65,6 +76,7 @@ test_dataset = image_dataset_from_directory(
 callbacks = [
     keras.callbacks.ModelCheckpoint(
         filepath="A:\Documents\Python Scripts\BirdBot2.0\Training",
+        #filepath="/content/drive/My Drive/",
         save_best_only=True,
         monitor="val_loss")
 ]
